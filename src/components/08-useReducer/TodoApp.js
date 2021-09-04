@@ -9,7 +9,10 @@ import "./style.css";
 
 export default function TodoApp() {
   const init = () => {
-    return JSON.parse(localStorage.getItem("todos")) || [];
+    // return JSON.parse(localStorage.getItem("todos")) || [];
+    return localStorage.getItem("todos")
+      ? JSON.parse(localStorage.getItem("todos"))
+      : [];
   };
 
   const [todos, dispatch] = useReducer(todoReducer, [], init);
